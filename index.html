@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Portal de Pedidos - Ideas en Tinta</title>
+    <style>
+        body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        iframe { width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+    <iframe id="portalFrame" src=""></iframe>
+
+    <script>
+        // ESTA ES LA MAGIA: Toma el ?uid=... de GitHub y se lo pasa a Google
+        const params = new URLSearchParams(window.location.search);
+        const uid = params.get('uid') || '';
+        
+        // REEMPLAZA ESTA URL por tu URL de implementación de Google Apps Script
+        const googleAppUrl = "https://script.google.com/macros/s/AKfycbwWgTKjVi0n1YKbo4eCr-nqUI-Zj0qZ1MMh-tK5x1yuVXj_xW1G8I1o3GDhzwu870KC/exec";
+        
+        const finalUrl = googleAppUrl + "?uid=" + uid;
+        document.getElementById('portalFrame').src = finalUrl;
+    </script>
+</body>
+</html>
